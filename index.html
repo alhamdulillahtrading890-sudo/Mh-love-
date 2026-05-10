@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Gift for my Jan</title>
+<title>Dream Night 🌙✨</title>
+
+<!-- EMOJI FONT -->
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&display=swap" rel="stylesheet">
 
 <style>
 
@@ -16,42 +18,307 @@
     box-sizing:border-box;
 
     font-family:
-    "Segoe UI",
-    "Segoe UI Emoji",
+    Arial,
     "Noto Color Emoji",
-    "Apple Color Emoji",
-    "Android Emoji",
     sans-serif;
 }
 
-body{
-    background:#081229;
-    overflow:hidden;
-}
-
-/* FLOATING HEARTS */
-
-.hearts{
-    position:fixed;
+html,body{
     width:100%;
     height:100%;
     overflow:hidden;
-    z-index:1;
 }
 
-.hearts span{
+/* NIGHT SKY */
+
+body{
+    position:relative;
+
+    background:
+    linear-gradient(
+    to top,
+    #020111 0%,
+    #071b3b 45%,
+    #0d3d73 100%
+    );
+}
+
+/* MOON */
+
+.moon{
     position:absolute;
-    bottom:-100px;
-    color:#ff4d88;
-    font-size:20px;
-    animation:heartMove linear infinite;
+
+    top:7%;
+    right:8%;
+
+    width:120px;
+    height:120px;
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(circle,
+    #ffffff 0%,
+    #dfefff 60%,
+    #bdd9ff 100%);
+
+    box-shadow:
+    0 0 40px #cfe8ff,
+    0 0 80px #8ecbff,
+    0 0 150px rgba(173,216,255,0.7);
+
+    animation:moonGlow 4s ease-in-out infinite alternate;
+
+    z-index:2;
 }
 
-@keyframes heartMove{
+@keyframes moonGlow{
+
+from{
+    transform:scale(1);
+}
+
+to{
+    transform:scale(1.08);
+}
+
+}
+
+/* STARS */
+
+.star{
+    position:absolute;
+
+    border-radius:50%;
+    background:white;
+
+    animation:
+    twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle{
+
+from{
+    opacity:0.2;
+}
+
+to{
+    opacity:1;
+}
+
+}
+
+/* MOUNTAINS */
+
+.mountain{
+    position:absolute;
+    bottom:140px;
+
+    width:0;
+    height:0;
+
+    border-left:250px solid transparent;
+    border-right:250px solid transparent;
+    border-bottom:260px solid #07111f;
+
+    z-index:3;
+}
+
+.m1{
+    left:-150px;
+}
+
+.m2{
+    left:180px;
+    border-bottom-color:#081524;
+}
+
+.m3{
+    left:520px;
+}
+
+.m4{
+    left:860px;
+    border-bottom-color:#081524;
+}
+
+.m5{
+    left:1180px;
+}
+
+/* FOREST */
+
+.forest{
+    position:absolute;
+
+    bottom:110px;
+
+    width:100%;
+    height:220px;
+
+    z-index:4;
+}
+
+.tree{
+    position:absolute;
+    bottom:0;
+
+    width:0;
+    height:0;
+
+    border-left:22px solid transparent;
+    border-right:22px solid transparent;
+    border-bottom:90px solid #020b16;
+}
+
+/* GROUND */
+
+.ground{
+    position:absolute;
+
+    bottom:0;
+
+    width:100%;
+    height:160px;
+
+    background:
+    linear-gradient(
+    to top,
+    #050b14,
+    #0a1830
+    );
+
+    z-index:5;
+}
+
+/* MIST */
+
+.mist{
+    position:absolute;
+
+    bottom:120px;
+
+    width:220%;
+    height:140px;
+
+    background:
+    radial-gradient(circle,
+    rgba(173,216,230,0.15),
+    transparent 70%);
+
+    filter:blur(30px);
+
+    animation:mistMove 18s linear infinite;
+
+    z-index:4;
+}
+
+@keyframes mistMove{
 
 0%{
-    transform:translateY(0);
-    opacity:0;
+    transform:translateX(0);
+}
+
+100%{
+    transform:translateX(-50%);
+}
+
+}
+
+/* FIREFLIES */
+
+.firefly{
+    position:absolute;
+
+    width:5px;
+    height:5px;
+
+    border-radius:50%;
+
+    background:#dfff8f;
+
+    box-shadow:
+    0 0 10px #dfff8f,
+    0 0 20px #dfff8f,
+    0 0 35px #dfff8f;
+
+    animation:
+    float 6s ease-in-out infinite,
+    blink 2s infinite alternate;
+
+    z-index:6;
+}
+
+@keyframes float{
+
+0%{
+    transform:translateY(0px);
+}
+
+50%{
+    transform:translateY(-30px);
+}
+
+100%{
+    transform:translateY(0px);
+}
+
+}
+
+@keyframes blink{
+
+from{
+    opacity:0.2;
+}
+
+to{
+    opacity:1;
+}
+
+}
+
+/* TEXT */
+
+.text{
+    position:absolute;
+
+    bottom:120px;
+    width:100%;
+
+    text-align:center;
+
+    z-index:10;
+}
+
+.text h1{
+
+    color:white;
+
+    font-size:50px;
+
+    text-shadow:
+    0 0 15px #fff,
+    0 0 40px #7ec8ff;
+
+    animation:fade 4s ease-in-out infinite;
+}
+
+.text p{
+
+    margin-top:18px;
+
+    color:#dbeafe;
+
+    font-size:24px;
+
+    text-shadow:
+    0 0 10px rgba(255,255,255,0.6);
+}
+
+@keyframes fade{
+
+0%{
+    opacity:0.7;
 }
 
 50%{
@@ -59,407 +326,175 @@ body{
 }
 
 100%{
-    transform:translateY(-120vh);
-    opacity:0;
-}
-
-}
-
-/* LOGIN */
-
-#loginPage{
-    width:100%;
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    position:relative;
-    z-index:2;
-}
-
-.login-box{
-    width:90%;
-    max-width:380px;
-    background:#14204d;
-    padding:30px;
-    border-radius:25px;
-    box-shadow:0 0 20px rgba(0,0,0,0.5);
-}
-
-.login-box h2{
-    color:white;
-    text-align:center;
-    margin-bottom:20px;
-    font-size:32px;
-}
-
-input{
-    width:100%;
-    padding:15px;
-    margin-top:15px;
-    border:none;
-    border-radius:12px;
-    background:#22346e;
-    color:white;
-    font-size:16px;
-}
-
-input::placeholder{
-    color:#ccc;
-}
-
-button{
-    width:100%;
-    padding:15px;
-    margin-top:20px;
-    border:none;
-    border-radius:12px;
-    background:#ff006a;
-    color:white;
-    font-size:18px;
-    cursor:pointer;
-}
-
-button:hover{
-    background:#ff3385;
-}
-
-#error{
-    color:red;
-    text-align:center;
-    margin-top:15px;
-    display:none;
-}
-
-/* DASHBOARD */
-
-#dashboard{
-    display:none;
-    position:relative;
-    z-index:2;
-    padding:20px;
-    min-height:100vh;
-}
-
-.top-card{
-    background:#14204d;
-    padding:25px;
-    border-radius:25px;
-    text-align:center;
-    color:white;
-    margin-bottom:25px;
-    box-shadow:0 0 15px rgba(0,0,0,0.4);
-}
-
-.top-card h1{
-    font-size:38px;
-}
-
-.top-card p{
-    margin-top:10px;
-    color:#ddd;
-    font-size:20px;
-}
-
-.logout{
-    background:red;
-}
-
-/* LOVE TEXT */
-
-.love-text{
-    background:#14204d;
-    color:white;
-    padding:25px;
-    border-radius:20px;
-    text-align:center;
-    font-size:22px;
-    line-height:38px;
-    margin-top:20px;
-    box-shadow:0 0 15px rgba(255,0,106,0.3);
-    transition:0.5s;
-    animation:glow 2s infinite alternate;
-}
-
-@keyframes glow{
-
-from{
-    text-shadow:0 0 10px pink;
-}
-
-to{
-    text-shadow:0 0 25px #ff006a;
+    opacity:0.7;
 }
 
 }
 
 /* MOBILE */
 
-@media(max-width:600px){
+@media(max-width:768px){
 
-.top-card h1{
-    font-size:28px;
+.moon{
+    width:85px;
+    height:85px;
+    top:8%;
+    right:8%;
 }
 
-.love-text{
+.text{
+    bottom:100px;
+}
+
+.text h1{
+    font-size:34px;
+}
+
+.text p{
     font-size:18px;
-    line-height:32px;
+    padding:0 20px;
+}
+
+.mountain{
+    border-left:180px solid transparent;
+    border-right:180px solid transparent;
+    border-bottom:180px solid #07111f;
+}
+
+.m2{
+    left:80px;
+}
+
+.m3{
+    left:320px;
+}
+
+.m4{
+    left:520px;
 }
 
 }
 
 </style>
 </head>
-
 <body>
 
-<div class="hearts" id="hearts"></div>
+<!-- MOON -->
 
-<!-- LOGIN -->
+<div class="moon"></div>
 
-<div id="loginPage">
+<!-- STARS -->
 
-<div class="login-box">
+<script>
 
-<h2>💖 Love Login 💖</h2>
+for(let i=0;i<220;i++){
 
-<input type="password" id="password" placeholder="Password">
+let star =
+document.createElement("div");
 
-<div id="error">
-Wrong Password ❌
-</div>
+star.className = "star";
 
-<button onclick="login()">
-Login 💕
-</button>
+let size =
+Math.random()*3 + 1;
 
-</div>
+star.style.width =
+size + "px";
 
-</div>
+star.style.height =
+size + "px";
 
-<!-- DASHBOARD -->
+star.style.left =
+Math.random()*100 + "vw";
 
-<div id="dashboard">
+star.style.top =
+Math.random()*80 + "vh";
 
-<div class="top-card">
+star.style.animationDuration =
+(Math.random()*3 + 1) + "s";
 
-<h1>💖 Gift for my Jan Himu 💖</h1>
+document.body.appendChild(star);
+
+}
+
+</script>
+
+<!-- MOUNTAINS -->
+
+<div class="mountain m1"></div>
+<div class="mountain m2"></div>
+<div class="mountain m3"></div>
+<div class="mountain m4"></div>
+<div class="mountain m5"></div>
+
+<!-- FOREST -->
+
+<div class="forest" id="forest"></div>
+
+<!-- MIST -->
+
+<div class="mist"></div>
+
+<!-- GROUND -->
+
+<div class="ground"></div>
+
+<!-- TEXT -->
+
+<div class="text">
+
+<h1>Good Night Janu 🌙</h1>
 
 <p>
-Welcome by Maruf 🌸
+You are my moon in every dark night ✨💖
 </p>
-
-<button class="logout" onclick="logout()">
-Logout ❤️
-</button>
-
-</div>
-
-<div id="loveText" class="love-text"></div>
 
 </div>
 
 <script>
 
-/* LOGIN */
+/* TREES */
 
-let savedPass = "Himu";
+const forest =
+document.getElementById("forest");
 
-function login(){
+for(let i=0;i<55;i++){
 
-let pass =
-document.getElementById("password").value;
+let tree =
+document.createElement("div");
 
-if(pass === savedPass){
+tree.className = "tree";
 
-document.getElementById("loginPage").style.display="none";
+tree.style.left =
+Math.random()*100 + "vw";
 
-document.getElementById("dashboard").style.display="block";
+tree.style.transform =
+"scale(" + (Math.random()*1.3 + 0.5) + ")";
 
-}else{
-
-document.getElementById("error").style.display="block";
-
-}
-
-}
-
-/* LOGOUT */
-
-function logout(){
-
-document.getElementById("dashboard").style.display="none";
-
-document.getElementById("loginPage").style.display="flex";
+forest.appendChild(tree);
 
 }
 
-/* LOVE QUOTES */
+/* FIREFLIES */
 
-const loveQuotes = [
+for(let i=0;i<70;i++){
 
-"তোমার হাসিতেই আমার সমস্ত বিষণ্ণতার অবসান, যেখানে আমি আমার চিরস্থায়ী শান্তি খুঁজে পাই। ❤️💫",
+let firefly =
+document.createElement("div");
 
-"কিছু মায়া ভাষায় প্রকাশ করা যায় না, শুধু হৃদস্পন্দনের দ্রুত ওঠানামায় তা অনুভব করা যায়। 💓⏳",
+firefly.className = "firefly";
 
-"তুমি আমার গল্পের সেই বিশেষ অধ্যায়, যার প্রতিটি শব্দ আমি পরম যত্নে আগলে রাখি। 📜💎",
+firefly.style.left =
+Math.random()*100 + "vw";
 
-"এই পৃথিবীর সব কোলাহল থেকে দূরে, তোমার কাঁধে মাথা রেখে কাটানো সময়টাই আমার কাছে সেরা। 🌙💞",
+firefly.style.top =
+(Math.random()*45 + 45) + "vh";
 
-"💖 ভালোবাসার অসীম সাগরে তোমার সঙ্গে হারিয়ে যেতে চাই। 💖",
+firefly.style.animationDuration =
+(Math.random()*4 + 3) + "s";
 
-"💞 ভালোবাসা মানে শুধু মুখে বলা নয়, হৃদয়ে অনুভব করা। 💞",
-
-"❤️ তোমার হাসির মাঝে আমার সমস্ত পৃথিবী লুকিয়ে আছে। ❤️",
-
-"💓 ভালোবাসা হলো সেই যাদু, যা দুঃখকে আনন্দে পরিণত করে। 💓",
-
-"💘 তুমি আমার জীবনের সেই গল্প, যা আমি প্রতিদিন নতুন করে লিখতে চাই। 💘",
-
-"💝 ভালোবাসা তখনই সত্যি হয়, যখন দুটি মন নীরবতার মাঝেও একে অপরকে বুঝতে পারে। 💝",
-
-"💘 তোমার সাথে কাটানো প্রতিটি মুহূর্ত স্বপ্নের মতো লাগে। 💘",
-
-"🌼 ভালোবাসা হলো সেই দীর্ঘ যাত্রা, যেখানে একসঙ্গে চলার আনন্দই সবচেয়ে সুন্দর। 💕",
-
-"💞 তোমার ভালোবাসা আমার জন্য এক অনন্ত আশ্রয়। 💞",
-
-"❤️ ভালোবাসা মানে শুধু কাছাকাছি থাকা নয়, দূরত্বের মাঝেও অনুভব করা। ❤️",
-
-"💓 ভালোবাসা হলো এক ধরনের নীরব প্রতিশ্রুতি। 💓",
-
-"💕 তোমার ভালোবাসার ছোঁয়ায় আমার পৃথিবী বদলে যায়। 💕",
-
-"💖 ভালোবাসা হলো সেই আলো, যা অন্ধকার পথেও পথ দেখায়। 💖",
-
-"💞 তুমি আমার হৃদয়ের সবচেয়ে গভীর চাওয়া। 💞",
-
-"💓 ভালোবাসা মানে শুধু সুখ ভাগ করা নয়, কষ্টের অংশীদার হওয়াও। 💓",
-
-"💘 তুমি আমার হৃদয়ের সেই মৃদু সুর। 💘",
-
-"চোখে চোখ রাখো, কথা হবে না… 👀🌀💞🤫🌠",
-
-"সময় বদলায়, মানুষ বদলায়, কিন্তু যাকে মন একবার ভালোবেসে ফেলে – সে থেকে যায় হৃদয়ের ঠিক মাঝখানে। 🕰️",
-
-"প্রতিটি মুহূর্তে তোমাকে আরও বেশি ভালোবাসি। 🥰⏳💞",
-
-"🌙 চাঁদকে বলেছি আর আলো দিও না, কারণ আমার রাত তো এখন ওর হাসিতেই জ্বলজ্বল করে!",
-
-"💚 তোমার ভালোবাসা যেন সকালবেলার রোদ। 🌻",
-
-"🌷 তুমি চোখে না থাকলেও মন বলে দেয় – কোথাও একটা তুমি আমার জন্য অপেক্ষা করছো। 🌷",
-
-"💖 তোমার একটা ‘আছি’ — আমার হাজারটা না থাকা ভুলিয়ে দেয়। 💖",
-
-"💙 প্রেমটা তখনই গভীর হয়, যখন মন বুঝে যায় – এই মানুষটাকে হারালে আর কাউকে দিয়ে পূরণ হবে না। 💙",
-
-"❤️ তোমার একটা মেসেজ, আমার দিনের শত ব্যস্ততাকে হার মানায়। ❤️",
-
-"তোমার হাতে হাত রেখে বাকিটা জীবন কাটিয়ে দিতে চাই। 🤝🌅👩‍❤️‍👨",
-
-"💚 জীবনটা ছোট হলেও, তোমার ভালোবাসায় বেঁচে থাকার ইচ্ছেটা খুব বড় হয়ে যায়। 💚",
-
-"💚 তোমাকে ভালোবাসার জন্য কোনো ব্যাখ্যার দরকার হয় না। 💚",
-
-"💚 তোমার কাঁধটা আমার শান্তির ঠিকানা। 💚",
-
-"তুমি পাশে থাকলে সব স্বপ্ন সত্যি মনে হয়। 🌠✨👫",
-
-"💞 ভালোবাসা মানেই পাশে থাকা নয়। 💞",
-
-"কাছে থাকো না হয় দূরে, মনটা তো তোমারই… 🏹💞",
-
-"আমার হৃদয়ের প্রতিটা স্পন্দনে শুধু তোমার নাম লেখা আছে। 💖",
-
-"তুমি শুধু আমার ভালোবাসার মানুষ নও, তুমি আমার জীবনের সবচেয়ে প্রিয়জন। 👫",
-
-"আমি তোকে আমার জীবনের সেই ধ্রুবতারা করতে চাই। 🌠💖",
-
-"তোমার এক পলক চাহনিতে আমার সমস্ত ক্লান্তি মুছে যায়। 🌹✨"
-
-];
-
-/* AUTO ADD MORE */
-
-for(let i=1; i<=1000; i++){
-
-loveQuotes.push(
-"💖 তুমি আমার হৃদয়ের সবচেয়ে সুন্দর অনুভূতি #" + i
-);
+document.body.appendChild(firefly);
 
 }
-
-/* SHOW QUOTES */
-
-let quoteBox =
-document.getElementById("loveText");
-
-let currentIndex = 0;
-
-function changeLoveText(){
-
-quoteBox.style.opacity = 0;
-
-setTimeout(()=>{
-
-quoteBox.innerHTML =
-loveQuotes[currentIndex];
-
-quoteBox.style.opacity = 1;
-
-currentIndex++;
-
-if(currentIndex >= loveQuotes.length){
-
-currentIndex = 0;
-
-}
-
-},500);
-
-}
-
-/* FIRST LOAD */
-
-changeLoveText();
-
-/* AUTO CHANGE */
-
-setInterval(changeLoveText,5000);
-
-/* FLOATING HEARTS */
-
-let hearts =
-document.getElementById("hearts");
-
-function createHeart(){
-
-let heart =
-document.createElement("span");
-
-heart.innerHTML = "💖";
-
-heart.style.left =
-Math.random() * 100 + "vw";
-
-heart.style.fontSize =
-Math.random() * 20 + 20 + "px";
-
-heart.style.animationDuration =
-Math.random() * 3 + 3 + "s";
-
-hearts.appendChild(heart);
-
-setTimeout(()=>{
-
-heart.remove();
-
-},6000);
-
-}
-
-setInterval(createHeart,300);
 
 </script>
 
