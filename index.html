@@ -1,133 +1,467 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>MH Love</title>
 
-  <style>
-    body{
-      margin:0;
-      height:100vh;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      align-items:center;
-      background: linear-gradient(135deg, #ffd6e8, #ffe6f2);
-      font-family: Arial;
-    }
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    .heart{
-      position: relative;
-      width: 150px;
-      height: 150px;
-      transform: rotate(-45deg);
-      animation: beat 1s infinite, glow 2s infinite;
-      filter: drop-shadow(0 0 15px #ff4da6)
-              drop-shadow(0 0 25px #ff66b2)
-              drop-shadow(0 0 35px #ff99cc);
-    }
+<title>Gift for my Jan</title>
 
-    .heart,
-    .heart::before,
-    .heart::after{
-      background: #ff4da6;
-    }
+<style>
 
-    .heart::before,
-    .heart::after{
-      content:"";
-      position:absolute;
-      width:150px;
-      height:150px;
-      border-radius:50%;
-    }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 
-    .heart::before{
-      top:-75px;
-      left:0;
-    }
+    font-family:
+    "Segoe UI",
+    "Segoe UI Emoji",
+    "Noto Color Emoji",
+    "Apple Color Emoji",
+    "Android Emoji",
+    sans-serif;
+}
 
-    .heart::after{
-      left:75px;
-      top:0;
-    }
+body{
+    background:#081229;
+    overflow:hidden;
+}
 
-    /* 🔼 TOP TEXT */
-    .top-text{
-      position:absolute;
-      top:5px; /* 🔥 একদম উপরের দিকে */
-      left:50%;
-      transform: translateX(-50%) rotate(45deg);
-      font-size:14px;
-      color:white;
-      font-weight:bold;
-      text-shadow:0 0 5px white;
-      z-index:10;
-    }
+/* FLOATING HEARTS */
 
-    /* 🔤 CENTER TEXT */
-    .text{
-      position:absolute;
-      top:50%;
-      left:50%;
-      transform: translate(-50%, -80%) rotate(45deg);
-      color:white;
-      font-size:35px;
-      font-weight:bold;
-      text-shadow:0 0 10px white;
-      z-index:10;
-    }
+.hearts{
+    position:fixed;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    z-index:1;
+}
 
-    /* 💌 LOVE TEXT */
-    .love-text{
-      margin-top:60px;
-      font-size:23px;
-      color:#ff1a75;
-      font-weight:bold;
-      animation: fadeUp 3s infinite;
-      text-shadow:0 0 8px pink;
-    }
+.hearts span{
+    position:absolute;
+    bottom:-100px;
+    color:#ff4d88;
+    font-size:20px;
+    animation:heartMove linear infinite;
+}
 
-    @keyframes beat{
-      0%{ transform: rotate(-45deg) scale(1);}
-      50%{ transform: rotate(-45deg) scale(1.1);}
-      100%{ transform: rotate(-45deg) scale(1);}
-    }
+@keyframes heartMove{
 
-    @keyframes glow{
-      0%{
-        filter: drop-shadow(0 0 10px #ff4da6)
-                drop-shadow(0 0 20px #ff66b2)
-                drop-shadow(0 0 30px #ff99cc);
-      }
-      50%{
-        filter: drop-shadow(0 0 20px #ff80bf)
-                drop-shadow(0 0 40px #ff99cc)
-                drop-shadow(0 0 60px #ffcce6);
-      }
-      100%{
-        filter: drop-shadow(0 0 10px #ff4da6)
-                drop-shadow(0 0 20px #ff66b2)
-                drop-shadow(0 0 30px #ff99cc);
-      }
-    }
+0%{
+    transform:translateY(0);
+    opacity:0;
+}
 
-    @keyframes fadeUp{
-      0%{opacity:0; transform:translateY(20px);}
-      50%{opacity:1; transform:translateY(0);}
-      100%{opacity:0; transform:translateY(-20px);}
-    }
+50%{
+    opacity:1;
+}
 
-  </style>
+100%{
+    transform:translateY(-120vh);
+    opacity:0;
+}
+
+}
+
+/* LOGIN */
+
+#loginPage{
+    width:100%;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+    z-index:2;
+}
+
+.login-box{
+    width:90%;
+    max-width:380px;
+    background:#14204d;
+    padding:30px;
+    border-radius:25px;
+    box-shadow:0 0 20px rgba(0,0,0,0.5);
+}
+
+.login-box h2{
+    color:white;
+    text-align:center;
+    margin-bottom:20px;
+    font-size:32px;
+}
+
+input{
+    width:100%;
+    padding:15px;
+    margin-top:15px;
+    border:none;
+    border-radius:12px;
+    background:#22346e;
+    color:white;
+    font-size:16px;
+}
+
+input::placeholder{
+    color:#ccc;
+}
+
+button{
+    width:100%;
+    padding:15px;
+    margin-top:20px;
+    border:none;
+    border-radius:12px;
+    background:#ff006a;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#ff3385;
+}
+
+#error{
+    color:red;
+    text-align:center;
+    margin-top:15px;
+    display:none;
+}
+
+/* DASHBOARD */
+
+#dashboard{
+    display:none;
+    position:relative;
+    z-index:2;
+    padding:20px;
+    min-height:100vh;
+}
+
+.top-card{
+    background:#14204d;
+    padding:25px;
+    border-radius:25px;
+    text-align:center;
+    color:white;
+    margin-bottom:25px;
+    box-shadow:0 0 15px rgba(0,0,0,0.4);
+}
+
+.top-card h1{
+    font-size:38px;
+}
+
+.top-card p{
+    margin-top:10px;
+    color:#ddd;
+    font-size:20px;
+}
+
+.logout{
+    background:red;
+}
+
+/* LOVE TEXT */
+
+.love-text{
+    background:#14204d;
+    color:white;
+    padding:25px;
+    border-radius:20px;
+    text-align:center;
+    font-size:22px;
+    line-height:38px;
+    margin-top:20px;
+    box-shadow:0 0 15px rgba(255,0,106,0.3);
+    transition:0.5s;
+    animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+
+from{
+    text-shadow:0 0 10px pink;
+}
+
+to{
+    text-shadow:0 0 25px #ff006a;
+}
+
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+.top-card h1{
+    font-size:28px;
+}
+
+.love-text{
+    font-size:18px;
+    line-height:32px;
+}
+
+}
+
+</style>
 </head>
 
 <body>
 
-<div class="heart">
-  <div class="top-text"> love me plz</div>
-  <div class="text">Himu</div>
+<div class="hearts" id="hearts"></div>
+
+<!-- LOGIN -->
+
+<div id="loginPage">
+
+<div class="login-box">
+
+<h2>💖 Love Login 💖</h2>
+
+<input type="password" id="password" placeholder="Password">
+
+<div id="error">
+Wrong Password ❌
 </div>
 
-<div class="love-text">I Love You </div>
+<button onclick="login()">
+Login 💕
+</button>
+
+</div>
+
+</div>
+
+<!-- DASHBOARD -->
+
+<div id="dashboard">
+
+<div class="top-card">
+
+<h1>💖 Gift for my Jan Himu 💖</h1>
+
+<p>
+Welcome by Maruf 🌸
+</p>
+
+<button class="logout" onclick="logout()">
+Logout ❤️
+</button>
+
+</div>
+
+<div id="loveText" class="love-text"></div>
+
+</div>
+
+<script>
+
+/* LOGIN */
+
+let savedPass = "Himu";
+
+function login(){
+
+let pass =
+document.getElementById("password").value;
+
+if(pass === savedPass){
+
+document.getElementById("loginPage").style.display="none";
+
+document.getElementById("dashboard").style.display="block";
+
+}else{
+
+document.getElementById("error").style.display="block";
+
+}
+
+}
+
+/* LOGOUT */
+
+function logout(){
+
+document.getElementById("dashboard").style.display="none";
+
+document.getElementById("loginPage").style.display="flex";
+
+}
+
+/* LOVE QUOTES */
+
+const loveQuotes = [
+
+"তোমার হাসিতেই আমার সমস্ত বিষণ্ণতার অবসান, যেখানে আমি আমার চিরস্থায়ী শান্তি খুঁজে পাই। ❤️💫",
+
+"কিছু মায়া ভাষায় প্রকাশ করা যায় না, শুধু হৃদস্পন্দনের দ্রুত ওঠানামায় তা অনুভব করা যায়। 💓⏳",
+
+"তুমি আমার গল্পের সেই বিশেষ অধ্যায়, যার প্রতিটি শব্দ আমি পরম যত্নে আগলে রাখি। 📜💎",
+
+"এই পৃথিবীর সব কোলাহল থেকে দূরে, তোমার কাঁধে মাথা রেখে কাটানো সময়টাই আমার কাছে সেরা। 🌙💞",
+
+"💖 ভালোবাসার অসীম সাগরে তোমার সঙ্গে হারিয়ে যেতে চাই। 💖",
+
+"💞 ভালোবাসা মানে শুধু মুখে বলা নয়, হৃদয়ে অনুভব করা। 💞",
+
+"❤️ তোমার হাসির মাঝে আমার সমস্ত পৃথিবী লুকিয়ে আছে। ❤️",
+
+"💓 ভালোবাসা হলো সেই যাদু, যা দুঃখকে আনন্দে পরিণত করে। 💓",
+
+"💘 তুমি আমার জীবনের সেই গল্প, যা আমি প্রতিদিন নতুন করে লিখতে চাই। 💘",
+
+"💝 ভালোবাসা তখনই সত্যি হয়, যখন দুটি মন নীরবতার মাঝেও একে অপরকে বুঝতে পারে। 💝",
+
+"💘 তোমার সাথে কাটানো প্রতিটি মুহূর্ত স্বপ্নের মতো লাগে। 💘",
+
+"🌼 ভালোবাসা হলো সেই দীর্ঘ যাত্রা, যেখানে একসঙ্গে চলার আনন্দই সবচেয়ে সুন্দর। 💕",
+
+"💞 তোমার ভালোবাসা আমার জন্য এক অনন্ত আশ্রয়। 💞",
+
+"❤️ ভালোবাসা মানে শুধু কাছাকাছি থাকা নয়, দূরত্বের মাঝেও অনুভব করা। ❤️",
+
+"💓 ভালোবাসা হলো এক ধরনের নীরব প্রতিশ্রুতি। 💓",
+
+"💕 তোমার ভালোবাসার ছোঁয়ায় আমার পৃথিবী বদলে যায়। 💕",
+
+"💖 ভালোবাসা হলো সেই আলো, যা অন্ধকার পথেও পথ দেখায়। 💖",
+
+"💞 তুমি আমার হৃদয়ের সবচেয়ে গভীর চাওয়া। 💞",
+
+"💓 ভালোবাসা মানে শুধু সুখ ভাগ করা নয়, কষ্টের অংশীদার হওয়াও। 💓",
+
+"💘 তুমি আমার হৃদয়ের সেই মৃদু সুর। 💘",
+
+"চোখে চোখ রাখো, কথা হবে না… 👀🌀💞🤫🌠",
+
+"সময় বদলায়, মানুষ বদলায়, কিন্তু যাকে মন একবার ভালোবেসে ফেলে – সে থেকে যায় হৃদয়ের ঠিক মাঝখানে। 🕰️",
+
+"প্রতিটি মুহূর্তে তোমাকে আরও বেশি ভালোবাসি। 🥰⏳💞",
+
+"🌙 চাঁদকে বলেছি আর আলো দিও না, কারণ আমার রাত তো এখন ওর হাসিতেই জ্বলজ্বল করে!",
+
+"💚 তোমার ভালোবাসা যেন সকালবেলার রোদ। 🌻",
+
+"🌷 তুমি চোখে না থাকলেও মন বলে দেয় – কোথাও একটা তুমি আমার জন্য অপেক্ষা করছো। 🌷",
+
+"💖 তোমার একটা ‘আছি’ — আমার হাজারটা না থাকা ভুলিয়ে দেয়। 💖",
+
+"💙 প্রেমটা তখনই গভীর হয়, যখন মন বুঝে যায় – এই মানুষটাকে হারালে আর কাউকে দিয়ে পূরণ হবে না। 💙",
+
+"❤️ তোমার একটা মেসেজ, আমার দিনের শত ব্যস্ততাকে হার মানায়। ❤️",
+
+"তোমার হাতে হাত রেখে বাকিটা জীবন কাটিয়ে দিতে চাই। 🤝🌅👩‍❤️‍👨",
+
+"💚 জীবনটা ছোট হলেও, তোমার ভালোবাসায় বেঁচে থাকার ইচ্ছেটা খুব বড় হয়ে যায়। 💚",
+
+"💚 তোমাকে ভালোবাসার জন্য কোনো ব্যাখ্যার দরকার হয় না। 💚",
+
+"💚 তোমার কাঁধটা আমার শান্তির ঠিকানা। 💚",
+
+"তুমি পাশে থাকলে সব স্বপ্ন সত্যি মনে হয়। 🌠✨👫",
+
+"💞 ভালোবাসা মানেই পাশে থাকা নয়। 💞",
+
+"কাছে থাকো না হয় দূরে, মনটা তো তোমারই… 🏹💞",
+
+"আমার হৃদয়ের প্রতিটা স্পন্দনে শুধু তোমার নাম লেখা আছে। 💖",
+
+"তুমি শুধু আমার ভালোবাসার মানুষ নও, তুমি আমার জীবনের সবচেয়ে প্রিয়জন। 👫",
+
+"আমি তোকে আমার জীবনের সেই ধ্রুবতারা করতে চাই। 🌠💖",
+
+"তোমার এক পলক চাহনিতে আমার সমস্ত ক্লান্তি মুছে যায়। 🌹✨"
+
+];
+
+/* AUTO ADD MORE */
+
+for(let i=1; i<=1000; i++){
+
+loveQuotes.push(
+"💖 তুমি আমার হৃদয়ের সবচেয়ে সুন্দর অনুভূতি #" + i
+);
+
+}
+
+/* SHOW QUOTES */
+
+let quoteBox =
+document.getElementById("loveText");
+
+let currentIndex = 0;
+
+function changeLoveText(){
+
+quoteBox.style.opacity = 0;
+
+setTimeout(()=>{
+
+quoteBox.innerHTML =
+loveQuotes[currentIndex];
+
+quoteBox.style.opacity = 1;
+
+currentIndex++;
+
+if(currentIndex >= loveQuotes.length){
+
+currentIndex = 0;
+
+}
+
+},500);
+
+}
+
+/* FIRST LOAD */
+
+changeLoveText();
+
+/* AUTO CHANGE */
+
+setInterval(changeLoveText,5000);
+
+/* FLOATING HEARTS */
+
+let hearts =
+document.getElementById("hearts");
+
+function createHeart(){
+
+let heart =
+document.createElement("span");
+
+heart.innerHTML = "💖";
+
+heart.style.left =
+Math.random() * 100 + "vw";
+
+heart.style.fontSize =
+Math.random() * 20 + 20 + "px";
+
+heart.style.animationDuration =
+Math.random() * 3 + 3 + "s";
+
+hearts.appendChild(heart);
+
+setTimeout(()=>{
+
+heart.remove();
+
+},6000);
+
+}
+
+setInterval(createHeart,300);
+
+</script>
 
 </body>
 </html>
